@@ -4,6 +4,7 @@
   "version": "0.0.1",
   "private": true,
   "dependencies": {
+<<<<<<< HEAD
     "ejs": "latest",
     "express": "latest",
     "mongoose": "latest",
@@ -23,6 +24,38 @@
     "load-grunt-tasks": "^0.4.0",
     "mocha": "latest",
     "supertest": "latest"
+=======
+    "body-parser": "^1.9.2",
+    "debug": "^2.1.0",
+    "ejs": "latest",
+    "errorhandler": "latest",
+    "express": "^4.10.1",
+    "faye-websocket": "^0.7.3",
+    "gaze": "^0.6.4",
+    "glob": "^4.0.6",
+    "grunt": "^0.4.5",
+    "inherits": "^2.0.1",
+    "lodash": "^2.4.1",
+    "lru-cache": "^2.5.0",
+    "method-override": "latest",
+    "minimatch": "^1.0.0",
+    "mongoose": "^3.8.18",
+    "morgan": "latest",
+    "ms": "^0.6.2",
+    "qs": "^2.3.2",
+    "sigmund": "^1.0.0"
+  },
+  "devDependencies": {
+    "grunt": "latest",
+    "grunt-mocha-test": "latest",
+    "bower": "latest",
+    "supertest": "latest",
+    "mocha": "latest",
+    "grunt-open": "^0.2.3",
+    "grunt-contrib-watch": "^0.6.1",
+    "grunt-express-server": "^0.4.17",
+    "load-grunt-tasks": "^0.4.0"
+>>>>>>> 95dee96519e9af8be2e8eae56007aa0bc8464e6b
   },
   "scripts": {
     "test": "grunt test",

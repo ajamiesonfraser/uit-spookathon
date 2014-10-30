@@ -5,8 +5,12 @@
   "private": true,
   "dependencies": {
     "jquery": "latest",
-    "polymer": "Polymer/polymer#~0.4.2",
-    "core-elements": "Polymer/core-elements#~0.4.2"
+    "polymer": "~0.4.2",
+    "platform": "~1.2.0",
+    "polymer-elements": "Polymer/polymer-elements#~0.3.0",
+    "app-router": "~2.0.2",
+    "core-elements": "Polymer/core-elements#~0.4.2",
+    "o-auth": "mui-is/o-auth#master"
   },
   "ignore": [
     "**/.*",
@@ -14,5 +18,11 @@
     "bower_components",
     "test",
     "tests"
-  ]
+  ],
+  "resolutions": {
+    "platform": "^0.4.0",
+    "polymer": "~0.4.2",
+    "core-component-page": "^0.4.0",
+    "core-localstorage": "^0.4.0"
+  }
 }
