@@ -2,7 +2,7 @@
 <link rel="import" href="/pages/masque-layout.html">
 <link rel="import" href="/bower_components/o-auth/o-auth.html">
 
-<polymer-element name="create-user" noscript>
+<polymer-element name="masque-party" noscript>
     <template >
         <style>
 
@@ -17,24 +17,25 @@
             }
 
         </style>
-        <docs-layout>
+        <masque-layout>
             <section  horizontal layout start core-light-theme>
-                <script>var username="hello"</script>
                 <form>
-                    <oauth-github client=""></oauth-github>
+                    <div>
 
-                    <paper-input id="username" floatingLabel placeholder="username" require flex></paper-input>
+                        <paper-input id="username" floatingLabel placeholder="username" require flex></paper-input>
 
-                    <paper-input id="password" floatingLabel placeholder="password" require flex></paper-input>
+                        <paper-input id="password" floatingLabel placeholder="password" require flex></paper-input>
 
-                    <paper-input id="confirm" floatingLabel placeholder="confirm password" require flex></paper-input>
+                        <paper-input id="confirm" floatingLabel placeholder="confirm password" require flex></paper-input>
 
-                    <div center-center horizontal layout>
-                        <paper-button class="default" onClick="newUser()">preview</paper-button>
-                        <div flex></div>
-                        <paper-button onClick="newUser('submit')" class="submit" >submit</paper-button></div>
+                        <div center-center horizontal layout>
+                            <paper-button class="default" onClick="newUser()">preview</paper-button>
+                            <div flex></div>
+                            <paper-button onClick="newUser('submit')" class="submit" >submit</paper-button>
+                        </div>
+                    </div>
                 </form>
             </section>
-        </docs-layout>
+        </masque-layout>
     </template>
 </polymer-element>
