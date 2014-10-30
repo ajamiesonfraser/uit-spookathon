@@ -15,6 +15,9 @@
                 background: #311b92;
                 color: #ede7f6;
             }
+            :host ::shadow .user_text_input{
+                padding-bottom: 0;
+            }
 
         </style>
         <masque-layout>
@@ -22,11 +25,11 @@
                 <form>
                     <div>
 
-                        <paper-input id="username" floatingLabel placeholder="username" require flex></paper-input>
+                        <paper-input id="username" class="user_text_input" floatingLabel placeholder="username" require flex></paper-input>
 
-                        <paper-input id="password" floatingLabel placeholder="password" require flex></paper-input>
+                        <paper-input id="password" class="user_text_input" floatingLabel placeholder="password" require flex></paper-input>
 
-                        <paper-input id="confirm" floatingLabel placeholder="confirm password" require flex></paper-input>
+                        <paper-input id="confirm" class="user_text_input" floatingLabel placeholder="confirm password" require flex></paper-input>
 
                         <div center-center horizontal layout>
                             <paper-button class="default" onClick="newUser()">preview</paper-button>
