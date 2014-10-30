@@ -1,5 +1,6 @@
 module.exports = function(grunt) {
   require('load-grunt-tasks')(grunt);
+    grunt.loadNpmTasks('grunt-contrib-sass');
   grunt.initConfig({
     // Configure a mochaTest task
     mochaTest: {
@@ -44,7 +45,7 @@ module.exports = function(grunt) {
       server: {
         url: 'http://localhost:<%= express.options.port %>'
       }
-    }    
+    }
   });
 
   grunt.registerTask('test', 'mochaTest');
