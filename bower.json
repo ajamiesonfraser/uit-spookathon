@@ -4,7 +4,9 @@
   "description": "Sample Description",
   "private": true,
   "dependencies": {
-    "jquery": "latest"
+    "jquery": "latest",
+    "polymer": "Polymer/polymer#~0.4.2",
+    "core-elements": "Polymer/core-elements#~0.4.2"
   },
   "ignore": [
     "**/.*",
