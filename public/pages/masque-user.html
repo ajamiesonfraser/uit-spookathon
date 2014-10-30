@@ -1,10 +1,8 @@
-<link rel="import" href="/components/elements/polymer/polymer.html">
+<link rel="import" href="/bower_components/polymer/polymer.html">
 <link rel="import" href="/pages/masque-layout.html">
-<link rel="import" href="/components/elements/o-auth/o-auth.html">
-<link rel="stylesheet" href="/components/elements/oauth-buttons/sign-in.css">
-<link rel="import" href="/components/elements/oauth-github/oauth-github.html">
+<link rel="import" href="/bower_components/o-auth/o-auth.html">
 
-<polymer-element name="create-user" noscript>
+<polymer-element name="masque-user" noscript>
     <template >
         <style>
 
@@ -19,22 +17,11 @@
             }
 
         </style>
-        <docs-layout>
+        <masque-layout>
             <section  horizontal layout start core-light-theme>
-                <script>var username="hello"</script>
-                <form>
-                    <oauth-github client=""></oauth-github>
-
-                    <paper-input id="username" is="keanu-input" floatingLabel value="{{user.username}}" placeholder="username" require flex></paper-input>
-
-                    <paper-input id="password" is="keanu-input" floatingLabel value="{{user.password}}" placeholder="password"require flex></paper-input>
-
-                    <paper-input id="confirm" is="keanu-input" floatingLabel value="{{user.confirm}}" placeholder="confirm password" require flex></paper-input>
-
-                    <div center-center horizontal layout>
-                        <paper-button class="default" onClick="createUser('member')">preview</paper-button><div flex></div><paper-button onClick="createUser('party')" class="submit" >submit</paper-button></div>
-                </form>
+                <div>my name</div>
+                <div>my pics</div>
             </section>
-        </docs-layout>
+        </masque-layout>
     </template>
 </polymer-element>
