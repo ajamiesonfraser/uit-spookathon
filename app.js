@@ -19,7 +19,6 @@ var db = require('./config/db');
 var config = require('./config/config');
 app.use(express.static(__dirname + '/public'));
 
-
 // Bootstrap models
 var modelsPath = path.join(__dirname, 'models');
 fs.readdirSync(modelsPath).forEach(function (file) {
