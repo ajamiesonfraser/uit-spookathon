@@ -4,27 +4,6 @@
   "version": "0.0.1",
   "private": true,
   "dependencies": {
-<<<<<<< HEAD
-    "ejs": "latest",
-    "express": "latest",
-    "mongoose": "latest",
-    "morgan": "latest",
-    "method-override": "latest",
-    "body-parser": "latest",
-    "errorhandler": "latest"
-  },
-  "devDependencies": {
-    "bower": "latest",
-    "grunt": "latest",
-    "grunt-contrib-sass": "^0.8.1",
-    "grunt-contrib-watch": "^0.6.1",
-    "grunt-express-server": "^0.4.17",
-    "grunt-mocha-test": "latest",
-    "grunt-open": "^0.2.3",
-    "load-grunt-tasks": "^0.4.0",
-    "mocha": "latest",
-    "supertest": "latest"
-=======
     "body-parser": "^1.9.2",
     "debug": "^2.1.0",
     "ejs": "latest",
@@ -55,7 +34,6 @@
     "grunt-contrib-watch": "^0.6.1",
     "grunt-express-server": "^0.4.17",
     "load-grunt-tasks": "^0.4.0"
->>>>>>> 95dee96519e9af8be2e8eae56007aa0bc8464e6b
   },
   "scripts": {
     "test": "grunt test",
