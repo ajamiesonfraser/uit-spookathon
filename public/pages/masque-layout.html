@@ -1,0 +1,30 @@
+<link rel="import" href="/bower_components/core-elements/core-elements.html">
+<link rel="import" href="/bower_components/paper-elements/paper-elements.html">
+<link rel="import" href="/bower_components/polymer-test-tools/tools.html">
+<link rel="import" href="/bower_components/font-roboto/roboto.html">
+<link rel="import" href="/bower_components/core-icons/core-icons.html">
+
+<polymer-element name="masque-layout" attributes="selected" noscript>
+  <template>
+    <style>core-toolbar{
+      background:#673ab7;
+      color: #ede7f6;
+    }
+
+      :host ::shadow core-scaffold div[tool]{
+        background:#673ab7;
+        color:#ede7f6;
+    }
+    </style>
+      <div tool id="rightheader">
+        <content select=".title"></content>
+      </div>
+        <div class="content">
+          <div flex></div>
+            <paper-shadow layout center-center flex horizontal>
+              <content></content>
+            </paper-shadow>
+          <div flex></div>
+        </div>
+  </template>
+</polymer-element>

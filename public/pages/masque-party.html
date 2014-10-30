@@ -1,0 +1,41 @@
+<link rel="import" href="/bower_components/polymer/polymer.html">
+<link rel="import" href="/pages/masque-layout.html">
+<link rel="import" href="/bower_components/o-auth/o-auth.html">
+
+<polymer-element name="masque-party" noscript>
+    <template >
+        <style>
+
+            .default {
+                background: #673ab7;
+                color: #ede7f6;
+            }
+
+            .submit {
+                background: #311b92;
+                color: #ede7f6;
+            }
+
+        </style>
+        <masque-layout>
+            <section  horizontal layout start core-light-theme>
+                <form>
+                    <div>
+
+                        <paper-input id="username" floatingLabel placeholder="username" require flex></paper-input>
+
+                        <paper-input id="password" floatingLabel placeholder="password" require flex></paper-input>
+
+                        <paper-input id="confirm" floatingLabel placeholder="confirm password" require flex></paper-input>
+
+                        <div center-center horizontal layout>
+                            <paper-button class="default" onClick="newUser()">preview</paper-button>
+                            <div flex></div>
+                            <paper-button onClick="newUser('submit')" class="submit" >submit</paper-button>
+                        </div>
+                    </div>
+                </form>
+            </section>
+        </masque-layout>
+    </template>
+</polymer-element>

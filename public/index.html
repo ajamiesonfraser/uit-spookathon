@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+  <head lang="en">
+    <meta charset="UTF-8">
+    <title>Masque</title>
+
+    <script type="text/javascript" src="/bower_components/platform/platform.js"></script>
+    <link rel="import" href="/bower_components/polymer/polymer.html">
+    <link rel="import" href="/bower_components/app-router/app-router.html">
+    <link rel="stylesheet" href="/css/style.css" >
+  </head>
+  <body unresolved fullbleed  theme="core-light-theme">
+  <div id="home"></div>
+        <app-router>
+          <app-route path="/:party/:user" import="/pages/masque-user.html"></app-route>
+          <app-route path="/" import="/pages/masque-party.html"></app-route>
+        </app-router>
+  </body>
+</html>
