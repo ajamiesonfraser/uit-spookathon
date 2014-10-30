@@ -11,10 +11,12 @@ var express = require('express'),
 
 var app = module.exports = exports.app = express();
 
+
 app.locals.siteName = "masque";
 
 // Connect to database
 var db = require('./config/db');
+var config = require('./config/config');
 app.use(express.static(__dirname + '/public'));
 
 

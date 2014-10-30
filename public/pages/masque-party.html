@@ -1,6 +1,7 @@
 <link rel="import" href="/bower_components/polymer/polymer.html">
 <link rel="import" href="/pages/masque-layout.html">
 <link rel="import" href="/bower_components/o-auth/o-auth.html">
+    <link rel="import"  href="/bower_components/">
 
 <polymer-element name="masque-party" noscript>
     <template >
@@ -27,7 +28,7 @@
                         <paper-input id="password" floatingLabel placeholder="password" require flex></paper-input>
 
                         <paper-input id="confirm" floatingLabel placeholder="confirm password" require flex></paper-input>
-
+                        <core-ajax></core-ajax>
                         <div center-center horizontal layout>
                             <paper-button class="default" onClick="newUser()">preview</paper-button>
                             <div flex></div>
@@ -36,6 +37,12 @@
                     </div>
                 </form>
             </section>
+            <script>
+                var party = {};
+                party.name = {};
+                party = [];
+
+            </script>
         </masque-layout>
     </template>
 </polymer-element>
