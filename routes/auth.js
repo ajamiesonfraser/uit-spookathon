@@ -35,6 +35,7 @@ var config = require('./../config/config');
         });
 
         app.get('/auth/twitter/callback', function (req, res, next) {
+                if(!req.session.oauth){req.session.oauth={}};
                 req.session.oauth.oauth_token=req.query.oauth_token;
                 req.session.oauth.verifier = req.query.oauth_verifier;
                 var oauth_data = req.session.oauth;
