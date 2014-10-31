@@ -3,10 +3,8 @@
  */
 
 var conf = {};
-if(process.env.URL) {
+var env=process.env.NODE_ENV;
+    console.log(env);
     conf.url = "http://masque.xyz"+ process.env.PORT;
-}else{
-    conf.url="http://localhost:3000"
-}
 
 module.exports = conf;
