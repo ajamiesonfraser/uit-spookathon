@@ -1,11 +1,23 @@
 <link rel="import" href="/bower_components/polymer/polymer.html">
 <link rel="import" href="/pages/masque-layout.html">
 <link rel="import" href="/bower_components/o-auth/o-auth.html">
+
+<link rel="import" href="masque-header.html">
+    <link rel="import" href="masque-image-capture.html">
+<link rel="import" href="/bower_components/core-overlay/core-overlay.html">
 <link rel="import"  href="/bower_components/paper-elements/paper-elements.html">
 <link rel="import" href="/bower_components/file-input/file-input.html">
 
+<link rel="import" href="/bower_components/core-icons/core-icons.html">
+<link rel="import" href="/bower_components/core-icon-button/core-icon-button.html">
+<link rel="import" href="/bower_components/core-ajax/core-ajax.html">
+<link rel="import" href="/bower_components/core-animated-pages/core-animated-pages.html">
+
+
+
 
 <polymer-element name="masque-party" noscript>
+
     <template >
 
         <style>
@@ -19,36 +31,70 @@
                 background: #311b92;
                 color: #ede7f6;
             }
+            .signIn_holder{
+                margin-top: 30%;
+
+            }
+
+            :host ::shadow .user_text_input{
+                padding-bottom: 0;
+            }
+            .vote_area paper-icon-button{
+                margin: 0 1rem;
+            }
+            .vote_area paper-icon-button:hover{
+                opacity: 0.5;
+            }
+            .camera_area::shadow{
+                padding-top:5rem;
+            }
+            core-icon-button{
+                color:#ff9800;
+                margin: 0 3rem;
+            }
 
         </style>
-        <core-overlay opened="true" layout vertical>
-            <paper-shadow z="1">
-                <div class="sigin-container">
-                    <paper-input floatingLabel label="#partyName"></paper-input>
-                    <a href="/auth/twitter"><paper-button align="center" width="100%">Join Party<core-icon icon="post-twitter"></core-icon></paper-button></a>
-                    <a href="/auth/twitter"><paper-button align="center" width="100%">Create Party</paper-button></a>
-                </div>
-            </paper-shadow>
-        </core-overlay>
+
+
+
+
+        <masque-header></masque-header>
+
         <masque-layout>
             <section  horizontal layout start core-light-theme>
-                <div vertical>
-                    <core-animated-pages>
-                        <img src="http://placehold.it/400x400">
-                    </core-animated-pages>
-                    <div horizontal layout center-justified style="width:50%;" >
-                        <div horizontal layout center-justified>
-                            <div flex></div>
+<<<<<<< HEAD
+                <core-ajax url="http://masque.xyz/api/user"></core-ajax>
+
+                <img src="http://placehold.it/400x400">
+
+
+            </section>
+        </masque-layout>
+        <masque-layout>
+            <section  horizontal layout start core-light-theme>
+                <div horizontal layout center-justified >
                             <paper-icon-button src="/img/0.png" onclick="vote(0)"></paper-icon-button>
                             <paper-icon-button src="/img/1.png" onclick="vote(1)"></paper-icon-button>
                             <paper-icon-button src="/img/2.png" onclick="vote(2)"></paper-icon-button>
                             <paper-icon-button src="/img/3.png" onclick="vote(3)"></paper-icon-button>
                             <paper-icon-button src="/img/4.png" onclick="vote(4)"></paper-icon-button>
-                            <div flex></div>
-                        </div>
+
+                </div>
+            </section>
+        </masque-layout>
+        <masque-layout >
+            <section  horizontal layout start core-light-theme>
+                <div horizontal layout center-justified >
+                    <div class="camera_area" horizontal layout center-justified>
+
+                        <core-icon-button icon="perm-identity"></core-icon-button>
+                        <core-icon-button icon="theaters"></core-icon-button>
+                        <paper-button label="upload" onclick="s3_upload()"></paper-button>
+                        <core-icon-button icon="trending-up"></core-icon-button>
                     </div>
+
                     <input type="file" id="">
-                    <paper-button label="upload" onclick="s3_upload()"></paper-button>
+
                 </div>
             </section>
         </masque-layout>
@@ -65,11 +111,14 @@
                     success:function(data){
                         user=data;
                         console.log(user);
+
                     }
                 })
             }else{
 
             }
+
+
         </script>
     </template>
 </polymer-element>

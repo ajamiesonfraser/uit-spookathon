@@ -1,0 +1,106 @@
+<link rel="import" href="/bower_components/polymer/polymer.html">
+<link rel="import" href="/pages/masque-layout.html">
+<link rel="import" href="/bower_components/o-auth/o-auth.html">
+
+<link rel="import" href="masque-header.html">
+<link rel="import" href="/bower_components/core-overlay/core-overlay.html">
+<link rel="import"  href="/bower_components/paper-elements/paper-elements.html">
+<link rel="import" href="/bower_components/core-icon/core-icon.html">
+<link rel="import" href="/bower_components/core-ajax/core-ajax.html">
+<link rel="import" href="/bower_components/core-animated-pages/core-animated-pages.html">
+
+<polymer-element name="masque-image-capture" attributes="selected" noscript>
+    <template>
+        <style>core-toolbar{
+            background:#673ab7;
+            color: #ede7f6;
+        }
+
+        :host ::shadow core-scaffold div[tool]{
+            background:#673ab7;
+            color:#ede7f6;
+        }
+        </style>
+        <div tool id="rightheader">
+            <content select=".title"></content>
+        </div>
+        <div class="content">
+            <div class='select'>
+                <label for='audioSource'>Audio source: </label><select id='audioSource'></select>
+            </div>
+
+            <div class='select'>
+                <label for='videoSource'>Video source: </label><select id='videoSource'></select>
+            </div>
+
+            <video muted autoplay></video>
+
+            <script>
+                var videoElement = document.querySelector("video");
+                var audioSelect = document.querySelector("select#audioSource");
+                var videoSelect = document.querySelector("select#videoSource");
+                var startButton = document.querySelector("button#start");
+
+                navigator.getUserMedia = navigator.getUserMedia ||
+                navigator.webkitGetUserMedia || navigator.mozGetUserMedia;
+
+                function gotSources(sourceInfos) {
+                    for (var i = 0; i != sourceInfos.length; ++i) {
+                        var sourceInfo = sourceInfos[i];
+                        var option = document.createElement("option");
+                        option.value = sourceInfo.id;
+                        if (sourceInfo.kind === 'audio') {
+                            option.text = sourceInfo.label || 'microphone ' + (audioSelect.length + 1);
+                            audioSelect.appendChild(option);
+                        } else if (sourceInfo.kind === 'video') {
+                            option.text = sourceInfo.label || 'camera ' + (videoSelect.length + 1);
+                            videoSelect.appendChild(option);
+                        } else {
+                            console.log('Some other kind of source: ', sourceInfo);
+                        }
+                    }
+                }
+
+                if (typeof MediaStreamTrack === 'undefined'){
+                    alert('This browser does not support MediaStreamTrack.\n\nTry Chrome Canary.');
+                } else {
+                    MediaStreamTrack.getSources(gotSources);
+                }
+
+
+                function successCallback(stream) {
+                    window.stream = stream; // make stream available to console
+                    videoElement.src = window.URL.createObjectURL(stream);
+                    videoElement.play();
+                }
+
+                function errorCallback(error){
+                    console.log("navigator.getUserMedia error: ", error);
+                }
+
+                function start(){
+                    if (!!window.stream) {
+                        videoElement.src = null;
+                        window.stream.stop();
+                    }
+                    var audioSource = audioSelect.value;
+                    var videoSource = videoSelect.value;
+                    var constraints = {
+                        audio: {
+                            optional: [{sourceId: audioSource}]
+                        },
+                        video: {
+                            optional: [{sourceId: videoSource}]
+                        }
+                    };
+                    navigator.getUserMedia(constraints, successCallback, errorCallback);
+                }
+
+                audioSelect.onchange = start;
+                videoSelect.onchange = start;
+
+                start();
+            </script>
+        </div>
+    </template>
+</polymer-element>

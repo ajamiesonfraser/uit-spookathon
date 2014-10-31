@@ -1,0 +1,41 @@
+<link rel="import" href="/bower_components/core-elements/core-elements.html">
+<link rel="import" href="/bower_components/paper-elements/paper-elements.html">
+<link rel="import" href="/bower_components/polymer-test-tools/tools.html">
+<link rel="import" href="/bower_components/font-roboto/roboto.html">
+<link rel="import" href="/bower_components/core-icons/core-icons.html">
+<link rel="import" href="/bower_components/core-scaffold/core-scaffold.html">
+<link rel="import" href="/bower_components/core-header-panel/core-header-panel.html">
+<link rel="import" href="/bower_components/core-menu/core-menu.html">
+<link rel="import" href="/bower_components/core-item/core-item.html">
+
+<polymer-element name="masque-home" attributes="selected" noscript>
+    <template>
+        <style>
+            paper-button{
+                background-color: #d6d6d6;
+                display: block;
+                margin-bottom: 2rem;
+            }
+            header{
+               padding-top: 10rem;
+            }
+            h3{
+                color:#fff;
+            }
+        </style>
+        <header flex horizontal layout center-justified>
+            <h1 align="center" style="color:#fff;">MASQUE</h1>
+        </header>
+
+        <paper-shadow z="1" flex horizontal layout center-justified>
+            <div class="signIn_holder">
+                <paper-input label="Party Name"></paper-input>
+                <a href="/auth/twitter"><paper-button raised="true" align="center" center-justified >Sign in with twitter<core-icon icon="post-twitter"></core-icon></paper-button></a>
+                <paper-button raised="true" align="center" width="100%" center-justified >Create your own party</paper-button>
+            </div>
+        </paper-shadow>
+        <paper-shadow z="1" flex horizontal layout center-justified>
+            <h3>May the best costume win</h3>
+        </paper-shadow>
+    </template>
+</polymer-element>

@@ -12,7 +12,7 @@ var User = mongoose.models.User;
             "pSdcelcE7JfAfQxxRs5dVdCvl",
             "1HaLNsFG0g9yYGBIUIKg61T6M0TSaHGUhganA2NoFkEPVMwqT9",
             "1.0",
-            config.url + "/",
+            config.url + "/#/party",
             "HMAC-SHA1"
         );
 
