@@ -4,10 +4,11 @@
 <link rel="import" href="/bower_components/core-overlay/core-overlay.html">
 <link rel="import" href="/bower_components/core-icon/core-icon.html">
 <link rel="import" href="/bower_components/paper-button/paper-button.html">
+<link rel="import" href="masque-header.html">
 
 
 <polymer-element name="masque-party" noscript>
-    <template >
+    <template>
         <style>
 
             .default {
@@ -40,19 +41,22 @@
                 </paper-shadow>
             </core-overlay>
 
+        <masque-header></masque-header>
+
         <masque-layout>
             <section  horizontal layout start core-light-theme>
-                <div style="display: block">
-                    <img src="http://placehold.it/400x400">
-                </div>
 
-                <div style="display: block">
-                    <paper-fab mini icon="favorite"></paper-fab>
-                    <paper-fab mini icon="favorite"></paper-fab>
-                    <paper-fab mini icon="favorite"></paper-fab>
-                    <paper-fab mini icon="favorite"></paper-fab>
-                    <paper-fab mini icon="favorite"></paper-fab>
-                </div>
+                <img src="http://placehold.it/400x400">
+
+            </section>
+        </masque-layout>
+        <masque-layout>
+            <section  horizontal layout start core-light-theme>
+            <paper-fab mini icon="favorite"></paper-fab>
+            <paper-fab mini icon="favorite"></paper-fab>
+            <paper-fab mini icon="favorite"></paper-fab>
+            <paper-fab mini icon="favorite"></paper-fab>
+            <paper-fab mini icon="favorite"></paper-fab>
             </section>
         </masque-layout>
     </template>
