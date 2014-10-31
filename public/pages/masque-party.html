@@ -4,6 +4,7 @@
 <link rel="import"  href="/bower_components/paper-elements/paper-elements.html">
 <link rel="import" href="/bower_components/core-icon/core-icon.html">
 <link rel="import" href="/bower_components/core-ajax/core-ajax.html">
+<link rel="import" href="/bower_components/core-animated-pages/core-animated-pages.html">
 
 
 <polymer-element name="masque-party" noscript>
@@ -33,20 +34,28 @@
         <masque-layout>
             <section  horizontal layout start core-light-theme>
                 <div vertical>
-                    <img src="http://placehold.it/400x400">
+                    <core-ajax url="http://"></core-ajax>
+                    <core-animated-pages>
+                        <img src="http://placehold.it/400x400">
+                    </core-animated-pages>
                     <div horizontal layout center-justified style="width:50%;" >
                         <div horizontal layout center-justified>
                             <div flex></div>
-                            <paper-icon-button src="/img/0.png"></paper-icon-button>
-                            <paper-icon-button src="/img/1.png"></paper-icon-button>
-                            <paper-icon-button src="/img/2.png"></paper-icon-button>
-                            <paper-icon-button src="/img/3.png"></paper-icon-button>
-                            <paper-icon-button src="/img/4.png"></paper-icon-button>
+                            <paper-icon-button src="/img/0.png" onclick="vote(0)"></paper-icon-button>
+                            <paper-icon-button src="/img/1.png" onclick="vote(1)"></paper-icon-button>
+                            <paper-icon-button src="/img/2.png" onclick="vote(2)"></paper-icon-button>
+                            <paper-icon-button src="/img/3.png" onclick="vote(3)"></paper-icon-button>
+                            <paper-icon-button src="/img/4.png" onclick="vote(4)"></paper-icon-button>
                             <div flex></div>
                         </div>
                     </div>
                 </div>
             </section>
         </masque-layout>
+        <script>
+            var vote = function(){
+
+            }
+        </script>
     </template>
 </polymer-element>
