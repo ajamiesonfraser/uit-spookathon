@@ -12,7 +12,7 @@ var User = mongoose.models.User;
             "pSdcelcE7JfAfQxxRs5dVdCvl",
             "1HaLNsFG0g9yYGBIUIKg61T6M0TSaHGUhganA2NoFkEPVMwqT9",
             "1.0",
-            config.url + "/auth/twitter/callback",
+            config.url + "/",
             "HMAC-SHA1"
         );
 
@@ -33,13 +33,10 @@ var User = mongoose.models.User;
                     res.redirect('https://twitter.com/oauth/authenticate?oauth_token=' + oauth_token);
                 }
             });
-
         });
-        var goHome = function(results){
-            app.redirect("/")
-        };
-        app.get('/auth/twitter/callback', function (req, res, next) {
 
+        app.get('/auth/twitter/callback', function (req, res, next) {
+            console.log(req.query);
             var oauth_data = {
                 token: req.query.oauth_token,
                 verifier: req.query.oauth_verifier
@@ -52,21 +49,18 @@ var User = mongoose.models.User;
                 function (error, oauth_access_token, oauth_access_token_secret, results) {
                     if (error) {
                         res.send(error);
-                    }
-                    else {
+                    } else {
                         //req.session.oauth = results;
                         console.log(results, "<--results");
                         var user = new User(results);
                         user.save(function (err) {
                             if (!err) {
-
                                 console.log("created user");
-                                return res.json(201, user.toObject());
-                            } else {
-                                return res.json(500, err);
+                                return res.json(user);
                             }
                         });
                     }
                 });
-            });
+        })
+
     };

@@ -18,7 +18,7 @@ module.exports = function(app) {
   // GET
   api.user = function (req, res) {
     var id = req.params.id;
-    User.findOne({ '_id': id }, function(err, user) {
+    User.findOne({ '_id':id }, function(err, user) {
       if (err) {
         res.json(404, err);
       } else {
@@ -29,11 +29,10 @@ module.exports = function(app) {
 
   // POST
   api.addUser = function (req, res) {
-
     var user;
-
+      console.log('req',req.body);
     if(typeof req.body.user == 'undefined'){
-      return res.json(500, {message: 'user is undefined'});
+      return res.status(500).json( {message: 'user is undefined'});
     }
 
     user = new User(req.body.user);
@@ -43,7 +42,8 @@ module.exports = function(app) {
         console.log("created user");
         return res.json(201, user.toObject());
       } else {
-         return res.json(500, err);
+          console.log("err",err)
+          return res.status(500).json(err);
       }
     });
   };

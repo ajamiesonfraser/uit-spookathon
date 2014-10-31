@@ -6,6 +6,7 @@
 
 <polymer-element name="masque-party" noscript>
     <template >
+
         <style>
 
             .default {
@@ -49,8 +50,21 @@
                 </div>
             </section>
         </masque-layout>
+
         <script>
-            var vote = function(val){
+            if(typeof(user.screen_name)==="string"){
+
+            }
+            if(window.location.search){
+                var q = window.location.search;
+                console.log(q,"<--query")
+                $.ajax("/auth/twitter/callback"+q,{
+                    success:function(data){
+                        user=data;
+                        console.log(user);
+                    }
+                })
+            }else{
 
             }
         </script>
