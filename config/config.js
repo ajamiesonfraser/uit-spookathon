@@ -4,7 +4,7 @@
 
 var conf = {};
 if(process.node_env) {
-    conf.url = process.env.HOST + process.env.PORT;
+    conf.url = "http://masque.xyz"+ process.env.PORT;
 }else{
     conf.url="http://localhost:3000"
 }
