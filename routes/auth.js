@@ -61,6 +61,7 @@ var User = mongoose.models.User;
                         });
                     }
                 });
-        })
+            })
+        };
 
-    };
+
