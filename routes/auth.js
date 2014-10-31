@@ -9,7 +9,7 @@
                 "pSdcelcE7JfAfQxxRs5dVdCvl",
                 "1HaLNsFG0g9yYGBIUIKg61T6M0TSaHGUhganA2NoFkEPVMwqT9",
                 "1.0",
-                "http://104.131.171.42/auth/twitter/callback",
+                "http://104.131.171.42:49157/auth/twitter/callback",
                 "HMAC-SHA1"
             );
 
