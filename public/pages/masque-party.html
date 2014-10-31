@@ -6,7 +6,8 @@
     <link rel="import" href="masque-image-capture.html">
 <link rel="import" href="/bower_components/core-overlay/core-overlay.html">
 <link rel="import"  href="/bower_components/paper-elements/paper-elements.html">
-<link rel="import" href="/bower_components/core-icon/core-icon.html">
+<link rel="import" href="/bower_components/core-icons/core-icons.html">
+<link rel="import" href="/bower_components/core-icon-button/core-icon-button.html">
 <link rel="import" href="/bower_components/core-ajax/core-ajax.html">
 <link rel="import" href="/bower_components/core-animated-pages/core-animated-pages.html">
 
@@ -42,18 +43,15 @@
             .camera_area::shadow{
                 padding-top:5rem;
             }
+            core-icon-button{
+                color:#ff9800;
+                margin: 0 3rem;
+            }
 
         </style>
 
 
-            <core-overlay opened="true" raised="true" style="width:60vh; height:50vh;background-color: #fff">
-                <paper-shadow z="1">
-                    <div class="signIn_holder">
-                    <a href="/auth/twitter"><paper-button raised="true" align="center" width="100%">Sign in with twitter<core-icon icon="post-twitter"></core-icon></paper-button></a>
-                    <paper-button raised="true" align="center" width="100%">Create your own party</paper-button>
-                    </div>
-                </paper-shadow>
-            </core-overlay>
+
 
         <masque-header></masque-header>
 
@@ -81,7 +79,9 @@
             <section  horizontal layout start core-light-theme>
                 <div horizontal layout center-justified >
                     <div class="camera_area" horizontal layout center-justified>
-                        <paper-fab icon="camera-alt"></paper-fab>
+                        <core-icon-button icon="perm-identity"></core-icon-button>
+                        <core-icon-button icon="theaters"></core-icon-button>
+                        <core-icon-button icon="trending-up"></core-icon-button>
                     </div>
                 </div>
             </section>

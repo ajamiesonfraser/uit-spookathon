@@ -12,13 +12,21 @@
     <link rel="stylesheet" href="/css/style.css" >
   </head>
   <body unresolved fullbleed  theme="core-light-theme">
+  <style>
+      body{
+          background-color: #000;
+      }
+      :host ::shadow h1,h2,h3,h4,h5,h6,p,label{
+          color:#fff!important;
+      }
+  </style>
   <div id="home"></div>
 
   <!--<core-animated-pages transitions="cross-fade">-->
         <app-router>
-          <app-route path="/:party/:user" import="/pages/masque-user.html"></app-route>
+          <app-route path="/party" import="/pages/masque-party.html"></app-route>
             <app-route path="/sign-in" import="/pages/masque-user.html"></app-route>
-          <app-route path="/" import="/pages/masque-party.html"></app-route>
+          <app-route path="/" import="/pages/masque-home.html"></app-route>
         </app-router>
       <!--</core-animated-pages>-->
   </body>

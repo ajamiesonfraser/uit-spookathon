@@ -10,20 +10,32 @@
 
 <polymer-element name="masque-home" attributes="selected" noscript>
     <template>
-        <core-scaffold>
+        <style>
+            paper-button{
+                background-color: #d6d6d6;
+                display: block;
+                margin-bottom: 2rem;
+            }
+            header{
+               padding-top: 10rem;
+            }
+            h3{
+                color:#fff;
+            }
+        </style>
+        <header flex horizontal layout center-justified>
+            <h1 align="center" style="color:#fff;">MASQUE</h1>
+        </header>
 
-            <core-header-panel navigation flex mode="seamed">
-                <core-toolbar style="background-color: #526E9C; color: #fff;">Application</core-toolbar>
-                <core-menu>
-                    <a href="../sign-in"><core-item icon="settings" label="item1" ></core-item></a>
-                    <core-item icon="settings" label="item2"></core-item>
-                </core-menu>
-            </core-header-panel>
-
-            <div tool>Title</div>
-
-            <div class="content">Content goes here...</div>
-
-        </core-scaffold>
+        <paper-shadow z="1" flex horizontal layout center-justified>
+            <div class="signIn_holder">
+                <paper-input label="Party Name"></paper-input>
+                <a href="/#/party"><paper-button raised="true" align="center" center-justified >Sign in with twitter<core-icon icon="post-twitter"></core-icon></paper-button></a>
+                <paper-button raised="true" align="center" width="100%" center-justified >Create your own party</paper-button>
+            </div>
+        </paper-shadow>
+        <paper-shadow z="1" flex horizontal layout center-justified>
+            <h3>May the best costume win</h3>
+        </paper-shadow>
     </template>
 </polymer-element>
