@@ -1,7 +1,7 @@
 <link rel="import" href="/bower_components/polymer/polymer.html">
 <link rel="import" href="/pages/masque-layout.html">
 <link rel="import" href="/bower_components/o-auth/o-auth.html">
-    <link rel="import"  href="/bower_components/">
+<link rel="import"  href="/bower_components/paper-elements/paper-elements.html">
 
 <polymer-element name="masque-party" noscript>
     <template >
@@ -20,29 +20,18 @@
         </style>
         <masque-layout>
             <section  horizontal layout start core-light-theme>
-                <form>
-                    <div>
+                <div style="display: block">
+                    <img src="http://placehold.it/400x400">
+                </div>
 
-                        <paper-input id="username" floatingLabel placeholder="username" require flex></paper-input>
-
-                        <paper-input id="password" floatingLabel placeholder="password" require flex></paper-input>
-
-                        <paper-input id="confirm" floatingLabel placeholder="confirm password" require flex></paper-input>
-                        <core-ajax></core-ajax>
-                        <div center-center horizontal layout>
-                            <paper-button class="default" onClick="newUser()">preview</paper-button>
-                            <div flex></div>
-                            <paper-button onClick="newUser('submit')" class="submit" >submit</paper-button>
-                        </div>
-                    </div>
-                </form>
+                <div style="display: block">
+                    <paper-fab mini icon="favorite"></paper-fab>
+                    <paper-fab mini icon="favorite"></paper-fab>
+                    <paper-fab mini icon="favorite"></paper-fab>
+                    <paper-fab mini icon="favorite"></paper-fab>
+                    <paper-fab mini icon="favorite"></paper-fab>
+                </div>
             </section>
-            <script>
-                var party = {};
-                party.name = {};
-                party = [];
-
-            </script>
         </masque-layout>
     </template>
 </polymer-element>
