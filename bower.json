@@ -9,10 +9,11 @@
     "platform": "~1.2.0",
     "polymer-elements": "Polymer/polymer-elements#~0.3.0",
     "app-router": "~2.0.2",
-    "paper-elements":"Polymer/paper-elements#latest",
+    "paper-elements": "Polymer/paper-elements#latest",
     "core-elements": "Polymer/core-elements#~0.4.2",
     "o-auth": "mui-is/o-auth#master",
-    "paper-elements": "Polymer/paper-elements#~0.4.2"
+    "paper-elements": "Polymer/paper-elements#~0.4.2",
+    "file-input": "~1.1.3"
   },
   "ignore": [
     "**/.*",

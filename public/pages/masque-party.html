@@ -6,6 +6,7 @@
     <link rel="import" href="masque-image-capture.html">
 <link rel="import" href="/bower_components/core-overlay/core-overlay.html">
 <link rel="import"  href="/bower_components/paper-elements/paper-elements.html">
+<link rel="import" href="/bower_components/file-input/file-input.html">
 
 <link rel="import" href="/bower_components/core-icons/core-icons.html">
 <link rel="import" href="/bower_components/core-icon-button/core-icon-button.html">
@@ -61,6 +62,7 @@
 
         <masque-layout>
             <section  horizontal layout start core-light-theme>
+<<<<<<< HEAD
                 <core-ajax url="http://masque.xyz/api/user"></core-ajax>
 
                 <img src="http://placehold.it/400x400">
@@ -87,14 +89,18 @@
 
                         <core-icon-button icon="perm-identity"></core-icon-button>
                         <core-icon-button icon="theaters"></core-icon-button>
+                        <paper-button label="upload" onclick="s3_upload()"></paper-button>
                         <core-icon-button icon="trending-up"></core-icon-button>
                     </div>
+
+                    <input type="file" id="">
 
                 </div>
             </section>
         </masque-layout>
 
         <script>
+
             if(typeof(user.screen_name)==="string"){
 
             }
