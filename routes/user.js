@@ -53,9 +53,6 @@ module.exports = function(app) {
     var id = req.params.id;
 
     User.findById(id, function (err, user) {
-
-
-
       if(typeof req.body.user["title"] != 'undefined'){
         user["title"] = req.body.user["title"];
       }
