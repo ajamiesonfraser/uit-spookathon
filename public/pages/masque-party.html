@@ -62,7 +62,6 @@
 
         <masque-layout>
             <section  horizontal layout start core-light-theme>
-<<<<<<< HEAD
                 <core-ajax url="http://masque.xyz/api/user"></core-ajax>
 
                 <img src="http://placehold.it/400x400">
@@ -101,7 +100,7 @@
         <script src="/js/xml2json.js"></script>
         <script>
 
-        var s3upload = function() {
+        var s3_upload = function() {
             $.ajax('/aws/s3Policy?mimeType=' + file.type, {
                 success: function (response) {
 
@@ -109,7 +108,7 @@
                         {
                             type: 'POST',
                             data: {
-                                'key': 'images/' + +'/' + user.sceen_name + Math.round(Math.random() * 10000) + '$$' + file.name,
+                                'key': 'images/' + user.sceen_name + Math.round(Math.random() * 10000) + '$$' + file.name,
                                 'acl': 'public-read',
                                 'Content-Type': file.type,
                                 'AWSAccessKeyId': "idk",
@@ -140,19 +139,24 @@
                 }
             });
 
-        if (window.location.search) {
-            var q = window.location.search;
-            console.log(q, "<--query");
-            $.ajax("/auth/twitter/callback" + q, {
-                success: function (data) {
-                    user = data;
-                    console.log(user);
+            if (window.location.search) {
+                var q = window.location.search;
+                console.log(q, "<--query");
+                $.ajax("/auth/twitter/callback" + q, {
+                    success: function (data) {
+                        user = data;
+                        console.log(user);
 
-                }
-            })
-        } else {
+                    }
+                })
+            } else {
 
+            }
         }
+
+
+
+
 
 
         </script>
