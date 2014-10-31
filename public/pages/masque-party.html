@@ -98,25 +98,61 @@
                 </div>
             </section>
         </masque-layout>
-
+        <script src="/js/xml2json.js"></script>
         <script>
 
-            if(typeof(user.screen_name)==="string"){
+        var s3upload = function() {
+            $.ajax('/aws/s3Policy?mimeType=' + file.type, {
+                success: function (response) {
 
-            }
-            if(window.location.search){
-                var q = window.location.search;
-                console.log(q,"<--query")
-                $.ajax("/auth/twitter/callback"+q,{
-                    success:function(data){
-                        user=data;
-                        console.log(user);
+                    $.ajax('https://' + 'masque' + '.s3.amazonaws.com/',
+                        {
+                            type: 'POST',
+                            data: {
+                                'key': 'images/' + +'/' + user.sceen_name + Math.round(Math.random() * 10000) + '$$' + file.name,
+                                'acl': 'public-read',
+                                'Content-Type': file.type,
+                                'AWSAccessKeyId': "idk",
+                                'success_action_status': '201',
+                                'Policy': "idk",
+                                'Signature': "idk"
+                            },
+                            success: function (data) {
+                                file.progress = parseInt(100);
+                                if (response.status === 201) {
+                                    console.log(data, "<--data");
+                                    var data = xml2json.parser(response.data),
+                                        parsedData;
+                                    parsedData = {
+                                        location: data.postresponse.location,
+                                        bucket: data.postresponse.bucket,
+                                        key: data.postresponse.key,
+                                        etag: data.postresponse.etag
+                                    };
+                                    var newImage = parsedData.location;
 
-                    }
-                })
-            }else{
+                                } else {
+                                    alert('Upload Failed');
+                                }
+                            }
+                        })
 
-            }
+                }
+            });
+
+        if (window.location.search) {
+            var q = window.location.search;
+            console.log(q, "<--query");
+            $.ajax("/auth/twitter/callback" + q, {
+                success: function (data) {
+                    user = data;
+                    console.log(user);
+
+                }
+            })
+        } else {
+
+        }
 
 
         </script>
