@@ -9,6 +9,7 @@
     "ejs": "*",
     "errorhandler": "*",
     "express": "*",
+    "express-session": "^1.9.1",
     "gaze": "*",
     "glob": "*",
     "grunt": "*",
