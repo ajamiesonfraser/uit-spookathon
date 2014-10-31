@@ -2,6 +2,7 @@
 
 // Module dependencies.
 var express = require('express'),
+    session = require('express-session'),
     path = require('path'),
     fs = require('fs'),
     methodOverride = require('method-override'),
@@ -10,13 +11,14 @@ var express = require('express'),
     errorhandler = require('errorhandler');
 
 var app = module.exports = exports.app = express();
+app.use(session({secret: 'keyboard cat'}))
 
-app.locals.siteName = "masque";
+app.locals.siteName = undefined;
 
 // Connect to database
 var db = require('./config/db');
+var config = require('./config/config');
 app.use(express.static(__dirname + '/public'));
-
 
 // Bootstrap models
 var modelsPath = path.join(__dirname, 'models');
