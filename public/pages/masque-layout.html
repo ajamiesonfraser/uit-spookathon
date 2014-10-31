@@ -20,8 +20,14 @@
         <content select=".title"></content>
       </div>
         <div class="content">
+            <core-toolbar>
+                <core-icon-button icon="menu"></core-icon-button>
+                <span flex>Toolbar</span>
+                <core-icon-button icon="refresh"></core-icon-button>
+                <core-icon-button icon="add"></core-icon-button>
+            </core-toolbar>
           <div flex></div>
-            <paper-shadow layout center-center flex horizontal>
+            <paper-shadow z="0" layout center-center flex horizontal>
               <content></content>
             </paper-shadow>
           <div flex></div>

@@ -1,6 +1,10 @@
 <link rel="import" href="/bower_components/polymer/polymer.html">
 <link rel="import" href="/pages/masque-layout.html">
 <link rel="import" href="/bower_components/o-auth/o-auth.html">
+<link rel="import" href="/bower_components/core-overlay/core-overlay.html">
+<link rel="import" href="/bower_components/core-icon/core-icon.html">
+<link rel="import" href="/bower_components/paper-button/paper-button.html">
+
 
 <polymer-element name="masque-party" noscript>
     <template >
@@ -15,29 +19,40 @@
                 background: #311b92;
                 color: #ede7f6;
             }
+            .signIn_holder{
+                margin-top: 30%;
+
+            }
+
             :host ::shadow .user_text_input{
                 padding-bottom: 0;
             }
 
         </style>
+
+
+            <core-overlay opened="true" raised="true" style="width:60vh; height:50vh;background-color: #fff">
+                <paper-shadow z="1">
+                    <div class="signIn_holder">
+                    <a href="/auth/twitter"><paper-button raised="true" align="center" width="100%">Sign in with twitter<core-icon icon="post-twitter"></core-icon></paper-button></a>
+                    <paper-button raised="true" align="center" width="100%">Create your own party</paper-button>
+                    </div>
+                </paper-shadow>
+            </core-overlay>
+
         <masque-layout>
             <section  horizontal layout start core-light-theme>
-                <form>
-                    <div>
+                <div style="display: block">
+                    <img src="http://placehold.it/400x400">
+                </div>
 
-                        <paper-input id="username" class="user_text_input" floatingLabel placeholder="username" require flex></paper-input>
-
-                        <paper-input id="password" class="user_text_input" floatingLabel placeholder="password" require flex></paper-input>
-
-                        <paper-input id="confirm" class="user_text_input" floatingLabel placeholder="confirm password" require flex></paper-input>
-
-                        <div center-center horizontal layout>
-                            <paper-button class="default" onClick="newUser()">preview</paper-button>
-                            <div flex></div>
-                            <paper-button onClick="newUser('submit')" class="submit" >submit</paper-button>
-                        </div>
-                    </div>
-                </form>
+                <div style="display: block">
+                    <paper-fab mini icon="favorite"></paper-fab>
+                    <paper-fab mini icon="favorite"></paper-fab>
+                    <paper-fab mini icon="favorite"></paper-fab>
+                    <paper-fab mini icon="favorite"></paper-fab>
+                    <paper-fab mini icon="favorite"></paper-fab>
+                </div>
             </section>
         </masque-layout>
     </template>
