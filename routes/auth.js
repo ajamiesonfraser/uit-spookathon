@@ -3,6 +3,7 @@
  */
 //OAuth information!!!!
 var config = require('./../config/config');
+var api = require('./user')
     module.exports = function(app) {
         var OAuth = require('oauth').OAuth, oauth = new OAuth(
                 "https://api.twitter.com/oauth/request_token",
@@ -35,10 +36,11 @@ var config = require('./../config/config');
         });
 
         app.get('/auth/twitter/callback', function (req, res, next) {
-                if(!req.session.oauth){req.session.oauth={}};
-                req.session.oauth.oauth_token=req.query.oauth_token;
-                req.session.oauth.verifier = req.query.oauth_verifier;
-                var oauth_data = req.session.oauth;
+
+                var oauth_data = {
+                    token:req.query.oauth_token,
+                    verifier:req.query.oauth_verifier
+                };
 
                 oauth.getOAuthAccessToken(
                     oauth_data.token,

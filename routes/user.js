@@ -46,7 +46,6 @@ module.exports = function(app) {
          return res.json(500, err);
       }
     });
-
   };
 
   // PUT
