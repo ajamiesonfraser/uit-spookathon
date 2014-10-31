@@ -3,16 +3,18 @@
  */
 //OAuth information!!!!
 var config = require('./../config/config');
+var mongoose=require('mongoose');
+var User = mongoose.models.User;
     module.exports = function(app) {
         var OAuth = require('oauth').OAuth, oauth = new OAuth(
-                "https://api.twitter.com/oauth/request_token",
-                "https://api.twitter.com/oauth/access_token",
-                "pSdcelcE7JfAfQxxRs5dVdCvl",
-                "1HaLNsFG0g9yYGBIUIKg61T6M0TSaHGUhganA2NoFkEPVMwqT9",
-                "1.0",
-                config.url+"/auth/twitter/callback",
-                "HMAC-SHA1"
-            );
+            "https://api.twitter.com/oauth/request_token",
+            "https://api.twitter.com/oauth/access_token",
+            "pSdcelcE7JfAfQxxRs5dVdCvl",
+            "1HaLNsFG0g9yYGBIUIKg61T6M0TSaHGUhganA2NoFkEPVMwqT9",
+            "1.0",
+            config.url + "/",
+            "HMAC-SHA1"
+        );
 
 
         app.get('/auth/twitter', function (req, res) {
@@ -31,30 +33,34 @@ var config = require('./../config/config');
                     res.redirect('https://twitter.com/oauth/authenticate?oauth_token=' + oauth_token);
                 }
             });
-
         });
 
         app.get('/auth/twitter/callback', function (req, res, next) {
-                if(!req.session.oauth){req.session.oauth={}};
-                req.session.oauth.oauth_token=req.query.oauth_token;
-                req.session.oauth.verifier = req.query.oauth_verifier;
-                var oauth_data = req.session.oauth;
+            console.log(req.query);
+            var oauth_data = {
+                token: req.query.oauth_token,
+                verifier: req.query.oauth_verifier
+            };
 
-                oauth.getOAuthAccessToken(
-                    oauth_data.token,
-                    oauth_data.token_secret,
-                    oauth_data.verifier,
-                    function (error, oauth_access_token, oauth_access_token_secret, results) {
-                        if (error) {
-                            res.send(error);
-                        }
-                        else {
-                            req.session.oauth=results;
-                            console.log(results,"<--results");
-                            res.redirect("/");
-                        }
+            oauth.getOAuthAccessToken(
+                oauth_data.token,
+                oauth_data.token_secret,
+                oauth_data.verifier,
+                function (error, oauth_access_token, oauth_access_token_secret, results) {
+                    if (error) {
+                        res.send(error);
+                    } else {
+                        //req.session.oauth = results;
+                        console.log(results, "<--results");
+                        var user = new User(results);
+                        user.save(function (err) {
+                            if (!err) {
+                                console.log("created user");
+                                return res.json(user);
+                            }
+                        });
                     }
-                );
+                });
+        })
 
-        });
     };

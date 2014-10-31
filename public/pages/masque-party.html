@@ -6,6 +6,7 @@
     <link rel="import" href="masque-image-capture.html">
 <link rel="import" href="/bower_components/core-overlay/core-overlay.html">
 <link rel="import"  href="/bower_components/paper-elements/paper-elements.html">
+
 <link rel="import" href="/bower_components/core-icons/core-icons.html">
 <link rel="import" href="/bower_components/core-icon-button/core-icon-button.html">
 <link rel="import" href="/bower_components/core-ajax/core-ajax.html">
@@ -13,8 +14,11 @@
 
 
 
+
 <polymer-element name="masque-party" noscript>
-    <template>
+
+    <template >
+
         <style>
 
             .default {
@@ -57,21 +61,23 @@
 
         <masque-layout>
             <section  horizontal layout start core-light-theme>
+                <core-ajax url="http://masque.xyz/api/user"></core-ajax>
+                    <core-animated-pages>
+                     <img src="http://placehold.it/400x400">
+                    </core-animated-pages>
 
-                <img src="http://placehold.it/400x400">
 
             </section>
         </masque-layout>
         <masque-layout>
             <section  horizontal layout start core-light-theme>
                 <div horizontal layout center-justified >
-                    <div class="vote_area" horizontal layout center-justified>
                             <paper-icon-button src="/img/0.png" onclick="vote(0)"></paper-icon-button>
                             <paper-icon-button src="/img/1.png" onclick="vote(1)"></paper-icon-button>
                             <paper-icon-button src="/img/2.png" onclick="vote(2)"></paper-icon-button>
                             <paper-icon-button src="/img/3.png" onclick="vote(3)"></paper-icon-button>
                             <paper-icon-button src="/img/4.png" onclick="vote(4)"></paper-icon-button>
-                    </div>
+
                 </div>
             </section>
         </masque-layout>
@@ -86,8 +92,21 @@
                 </div>
             </section>
         </masque-layout>
+
         <script>
-            var vote = function(){
+            if(typeof(user.screen_name)==="string"){
+
+            }
+            if(window.location.search){
+                var q = window.location.search;
+                console.log(q,"<--query")
+                $.ajax("/auth/twitter/callback"+q,{
+                    success:function(data){
+                        user=data;
+                        console.log(user);
+                    }
+                })
+            }else{
 
             }
         </script>

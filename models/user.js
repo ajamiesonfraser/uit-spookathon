@@ -6,6 +6,7 @@ var mongoose = require('mongoose'),
 
 var fields = {
 	screen_name: { type: String },
+    user_id: { type: String },
 	vote: { type: Number },
     hasMembers:{default:false},
 	photos: [{type: Array}],
