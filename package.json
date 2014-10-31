@@ -1,7 +1,7 @@
 {
   "name": "masque",
   "description": "uit-spookathon app description here",
-  "version": "0.0.1",
+  "version": "0.0.100001",
   "private": true,
   "dependencies": {
     "body-parser": "^1.9.2",

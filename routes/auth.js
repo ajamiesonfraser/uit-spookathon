@@ -56,9 +56,8 @@ var config = require('./../config/config');
                         }
                     }
                 );
-            }
-            else {
-                res.redirect('/login'); // Redirect to login page
+            }else {
+                res.send('login'); // Redirect to login page
             }
         });
     };
