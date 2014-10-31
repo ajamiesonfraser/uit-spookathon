@@ -15,7 +15,8 @@
     "lodash": "*",
     "method-override": "*",
     "mongoose": "*",
-    "morgan": "*"
+    "morgan": "*",
+    "oauth": "^0.9.12"
   },
   "devDependencies": {
     "grunt": "latest",
