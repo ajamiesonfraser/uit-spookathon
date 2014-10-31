@@ -7,7 +7,6 @@
 <link rel="import" href="/bower_components/core-overlay/core-overlay.html">
 <link rel="import"  href="/bower_components/paper-elements/paper-elements.html">
 <link rel="import" href="/bower_components/file-input/file-input.html">
-
 <link rel="import" href="/bower_components/core-icons/core-icons.html">
 <link rel="import" href="/bower_components/core-icon-button/core-icon-button.html">
 <link rel="import" href="/bower_components/core-ajax/core-ajax.html">
@@ -72,16 +71,14 @@
         <masque-layout>
             <section  horizontal layout start core-light-theme>
                 <div horizontal layout center-justified >
-                            <paper-icon-button src="/img/0.png" onclick="vote(0)"></paper-icon-button>
-                            <paper-icon-button src="/img/1.png" onclick="vote(1)"></paper-icon-button>
-                            <paper-icon-button src="/img/2.png" onclick="vote(2)"></paper-icon-button>
-                            <paper-icon-button src="/img/3.png" onclick="vote(3)"></paper-icon-button>
-                            <paper-icon-button src="/img/4.png" onclick="vote(4)"></paper-icon-button>
+                        <paper-icon-button src="/img/0.png" onclick="vote(0)"></paper-icon-button>
+                        <paper-icon-button src="/img/1.png" onclick="vote(1)"></paper-icon-button>
+                        <paper-icon-button src="/img/2.png" onclick="vote(2)"></paper-icon-button>
+                        <paper-icon-button src="/img/3.png" onclick="vote(3)"></paper-icon-button>
+                        <paper-icon-button src="/img/4.png" onclick="vote(4)"></paper-icon-button>
 
                 </div>
             </section>
-        </masque-layout>
-        <masque-layout >
             <section  horizontal layout start core-light-theme>
                 <div horizontal layout center-justified >
                     <div class="camera_area" horizontal layout center-justified>
@@ -92,7 +89,8 @@
                         <core-icon-button icon="trending-up"></core-icon-button>
                     </div>
 
-                    <input type="file" id="">
+                    <input type="file" id="new_image">
+                    <input type="hidden" id="avatar_url" name="avatar_url" value="/public/img/4.png" />
 
                 </div>
             </section>
@@ -101,6 +99,7 @@
         <script>
 
         var s3_upload = function() {
+            var file = $.this.new_image
             $.ajax('/aws/s3Policy?mimeType=' + file.type, {
                 success: function (response) {
 
