@@ -2,11 +2,11 @@
 var mongoose = require('mongoose');
 
 var config = {
-  "db": "masque",  
-  "host": "localhost",  
-  "user": "",
-  "pw": "",
-  "port": 27017
+  "db": "masque",
+  "host": "dogen.mongohq.com",
+  "user": "masquer",
+  "pw": "masquerade",
+  "port": 10001
 };
 
 var port = (config.port.length > 0) ? ":" + config.port : '';
