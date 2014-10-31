@@ -51,7 +51,7 @@ var config = require('./../config/config');
                         else {
                             req.session.oauth=results;
                             console.log(results,"<--results");
-                            res.redirect("/");
+                            res.redirect("/api/user",results);
                         }
                     }
                 );
