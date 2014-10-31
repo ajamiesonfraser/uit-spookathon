@@ -5,6 +5,6 @@
 var conf = {};
 var env=process.env.NODE_ENV;
     console.log(env);
-    conf.url = "http://masque.xyz"+ process.env.PORT;
+    conf.url = "http://masque.xyz";
 
 module.exports = conf;
