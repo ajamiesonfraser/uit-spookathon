@@ -35,7 +35,6 @@ var config = require('./../config/config');
         });
 
         app.get('/auth/twitter/callback', function (req, res, next) {
-                req.session.oauth={};
                 req.session.oauth.oauth_token=req.query.oauth_token;
                 req.session.oauth.verifier = req.query.oauth_verifier;
                 var oauth_data = req.session.oauth;
@@ -46,8 +45,7 @@ var config = require('./../config/config');
                     oauth_data.verifier,
                     function (error, oauth_access_token, oauth_access_token_secret, results) {
                         if (error) {
-                            console.log(error);
-                            res.send("Authentication Failure!");
+                            res.send(error);
                         }
                         else {
                             req.session.oauth=results;
